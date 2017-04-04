@@ -1,10 +1,25 @@
 package com.chaoswang.fund.service;
 
-import io.dropwizard.Configuration;
+import org.hibernate.validator.constraints.NotEmpty;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
-import org.hibernate.validator.constraints.*;
-import javax.validation.constraints.*;
+
+import io.dropwizard.Configuration;
 
 public class FundDataServiceConfiguration extends Configuration {
-    // TODO: implement service configuration
+	@NotEmpty
+	@JsonProperty
+	private String template;
+
+	@NotEmpty
+	@JsonProperty
+	private String defaultName = "Stranger";
+
+	public String getDefaultName() {
+		return defaultName;
+	}
+
+	public String getTemplate() {
+		return template;
+	}
 }
